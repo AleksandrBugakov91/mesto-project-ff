@@ -1,12 +1,12 @@
 function openPopup(popup) { 
   popup.classList.add("popup_is-opened");
-  document.addEventListener("keydown", closePopupOnEsc); 
+  document.addEventListener("keydown", closePopupOnEsc);
+  popup.addEventListener("mousedown", closeByOverlayClick); 
 };
 
 function closePopup(popup) { 
   popup.classList.remove("popup_is-opened");
   document.removeEventListener("keydown", closePopupOnEsc);
-  popup.addEventListener("mousedown", closeByOverlayClick); 
 };
 
 function closePopupOnEsc(evt) {

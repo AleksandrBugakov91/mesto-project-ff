@@ -2,7 +2,7 @@ function deleteCard(card) {
   card.remove() 
 } 
 
-function createCards(item, openImagePopup) {
+function createCards(item, openImagePopup, deleteCard, toggleLike) {
     const templates = document
       .querySelector("#card-template")
       .content.querySelector(".places__item")
@@ -17,19 +17,17 @@ function createCards(item, openImagePopup) {
     cardImage.src = item.link;
     cardImage.alt = item.name;
   
-    deleteButton.addEventListener("click", () => deleteCard(templates));
+    deleteButton.addEventListener("click", () => deleteCard(templates)); 
 
-    buttonLike.addEventListener('click', () => {
-      toggleLike(buttonLike);
-    });
-      
+    buttonLike.addEventListener('click', () => toggleLike(buttonLike)); 
+
     cardImage.addEventListener("click", () => openImagePopup(item));
   
     return templates;
   }
   
-  function toggleLike(event) {
-    event.classList.toggle('card__like-button_is-active');
+  function toggleLike(evt) {
+    evt.classList.toggle('card__like-button_is-active');
   };
   
   export { createCards, toggleLike, deleteCard };
