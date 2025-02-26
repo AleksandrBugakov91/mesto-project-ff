@@ -19,7 +19,7 @@ function createCards(item, openImagePopup, deleteCard, toggleLike) {
   
     deleteButton.addEventListener("click", () => deleteCard(templates)); 
 
-    buttonLike.addEventListener('click', () => toggleLike(buttonLike)); 
+  buttonLike.addEventListener('click', () => toggleLike(buttonLike)); 
 
     cardImage.addEventListener("click", () => openImagePopup(item));
   
@@ -30,4 +30,4 @@ function createCards(item, openImagePopup, deleteCard, toggleLike) {
     evt.classList.toggle('card__like-button_is-active');
   };
   
-  export { createCards, toggleLike, deleteCard };
+  export { createCards, deleteCard, toggleLike };

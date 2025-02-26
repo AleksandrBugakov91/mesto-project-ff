@@ -1,6 +1,6 @@
 import "./pages/index.css";
 import { initialCards } from "./cards.js";
-import { createCards, toggleLike, deleteCard } from "./components/card.js";
+import { createCards, deleteCard, toggleLike} from "./components/card.js";
 import { openPopup, closePopup,closeByOverlayClick } from "./components/modal.js";
 
 const placesList = document.querySelector(".places__list");
@@ -50,7 +50,7 @@ function openImagePopup(item) {
 
 function addTemplates(cards) {
   cards.forEach(function (item) {
-    const templates = createCards(item, openImagePopup, toggleLike, deleteCard);
+    const templates = createCards(item, openImagePopup, deleteCard, toggleLike);
     placesList.append(templates);
   });
 }
@@ -88,7 +88,7 @@ function submitNewCardForm(evt) {
     link: linkImageNewCard.value,
   };
 
-  const templates = createCards(newCard, openImagePopup, toggleLike, deleteCard);
+  const templates = createCards(newCard, openImagePopup, deleteCard, toggleLike);
   placesList.prepend(templates);
 
   formAddNewCard.reset();
