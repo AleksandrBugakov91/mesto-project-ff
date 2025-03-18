@@ -25,3 +25,18 @@
     line-height: 17px;
   }
 }
+
+.popup__button_disabled {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.popup__content.popup__content-avatar {
+  max-width: 430px;
+  width: 100%;
+  min-height: 272px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 34px 36px;
+}
