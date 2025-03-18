@@ -119,13 +119,6 @@ buttonSaveProfileChanges.addEventListener("click", () =>
   openPopup(popupAddCard)
 );
 buttonEditProfile.addEventListener("click", () => {
-  openPopup(
-    popupEditProfile,
-    nameProfile,
-    descriptionProfile,
-    inputName,
-    inputDescription
-  );
   inputName.value = nameProfile.textContent;
   inputDescription.value = descriptionProfile.textContent;
 
@@ -149,9 +142,7 @@ formEditAvatar.addEventListener("submit", (evt) => {
 
   updatedProfileAvatar(avatarLink)
     .then((data) => {
-      const profileImage = document.querySelector(".profile__image");
       profileImage.style.backgroundImage = `url(${data.avatar})`;
-
       closePopup(popupEditAvatar);
     })
     .catch((err) => {

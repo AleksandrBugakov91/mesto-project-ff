@@ -1,4 +1,5 @@
 import { addLike, deleteLike } from "./api.js";
+import { deleteCard } from "./api.js";
 
 function toggleLike(cardId, likeButton, likeCounter) {
   const isLiked = likeButton.classList.contains("card__like-button_is-active");
@@ -63,13 +64,19 @@ function createCards(item, openImagePopup, userId) {
     deleteButton.style.display = "none";
   }
 
+  deleteButton.addEventListener("click", () => {
+    deleteCard(item._id)
+      .then(() => {
+        templates.remove();
+      })
+      .catch((err) => {
+        console.log("Ошибка удаления карточки:", err);
+      });
+  });
+
   cardImage.addEventListener("click", () => openImagePopup(item));
 
   return templates;
 }
 
-function deleteCard(cardElement) {
-  cardElement.remove();
-}
-
-export { createCards, deleteCard, toggleLike};
+export { createCards, toggleLike};
